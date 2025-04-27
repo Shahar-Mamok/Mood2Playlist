@@ -32,10 +32,20 @@ public class MainView extends Application {
         Scene scene = new Scene(layout, 400, 400);
         primaryStage.setTitle("Mood2Playlist");
         primaryStage.setScene(scene);
+        new controller.PlaylistController(this);
+
         primaryStage.show();
 
     }
-
+    public TextField getMoodInput() {
+        return MoodInput;
+    }
+    public Button getGenerateButton() {
+        return  GentatePlaylist;
+    }
+    public TextArea getResultArea() {
+        return resultArea;
+    }
     public static void main(String[] args) {
         launch(args);
     }
