@@ -24,7 +24,12 @@ public class PlaylistController {
             String moodText = view.getMoodInput().getText();  // ← יצירת moodText
             try {
                 List<String> keywords = aiService.getKeywordsFromMood(moodText);
-                view.getResultArea().setText(String.join(", ", keywords));
+                StringBuilder numberedList = new StringBuilder();
+                for (int i = 0; i < keywords.size(); i++) {
+                    numberedList.append((i + 1)).append(". ").append(keywords.get(i)).append("\n");
+                }
+                view.getResultArea().setText(numberedList.toString());
+
             } catch (Exception e) {
                 view.getResultArea().setText("EROR CONNCTION TO AI");
                 e.printStackTrace();
